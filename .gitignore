@@ -1,0 +1,24 @@
+# Python
+*.py[cod]
+.venv
+mock.jsonc
+.pytest_cache/
+
+# ENVs
+.env*
+
+# MySQL DB
+sql_app.db
+
+# IDE
+.vscode
+.idea/
+.idea
+
+# test coverage
+.coverage*
+htmlcov/
+
+# mac
+.DS_Store
+.python-version
