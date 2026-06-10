@@ -14,7 +14,6 @@ This project relies heavily on `make` commands and Docker for local development 
 1. **Build and start the containers:**
    ```bash
    make up
-
 ```
 
 *This brings up the backend API and the local PostgreSQL database in detached mode.*

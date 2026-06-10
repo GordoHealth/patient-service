@@ -1,4 +1,4 @@
-FROM python:3.11.1-slim-buster
+FROM python:3.13-slim-bookworm
 
 WORKDIR /usr/src
 
@@ -11,11 +11,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # It's required to run these commands to make sure that contrast can be installed in Linux OS
-RUN apt-get update && apt-get install build-essential -y
-RUN apt-get update && apt-get install -y libboost-all-dev
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    build-essential \
+    libboost-all-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip \
-  && pip install pipenv
+RUN pip install --no-cache-dir --upgrade pip pipenv
 
 COPY ./Pipfile ./Pipfile.lock ./
 

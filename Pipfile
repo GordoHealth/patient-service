@@ -16,10 +16,12 @@ uvicorn = {extras = ["standard"], version = "*"}
 [dev-packages]
 bandit = "*"
 black = "*"
+detect-secrets = "*"
 faker = "*"
 flake8 = "*"
 mypy = "*"
 pip-audit = "*"
+pip-licenses = "*"
 pytest = "*"
 pytest-asyncio = "*"
 pytest-cov = "*"
@@ -31,4 +33,4 @@ types-requests = "*"
 watchman = "*"
 
 [requires]
-python_version = "3.11"
+python_version = "3.13"

@@ -5,17 +5,12 @@
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.11"
+            "python_version": "3.13"
         },
         "sources": [
             {
                 "name": "pypi",
                 "url": "https://pypi.org/simple",
-                "verify_ssl": true
-            },
-            {
-                "name": "fury",
-                "url": "https://${BUNDLE_GEM__FURY__IO}:@pypi.fury.io/shadowhealth/",
                 "verify_ssl": true
             }
         ]
@@ -883,14 +878,6 @@
                 "sha256:5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
             ],
             "version": "==13.6.0"
-        },
-        "shadowhealth-pkg-oidc-verify-python": {
-            "hashes": [
-                "sha256:6b9f86e0a257825c27c74d55a69664b1875d50a817d56b6daef74e5f7e7a2281",
-                "sha256:c6740c177c832aa7f5f6e40681ce2f2c5a3e6607626c945ad1ca13afeb525480"
-            ],
-            "index": "fury",
-            "version": "==0.5.1"
         },
         "shellingham": {
             "hashes": [
@@ -2201,14 +2188,6 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==68.2.2"
-        },
-        "shadowhealth-pkg-oidc-mock-python": {
-            "hashes": [
-                "sha256:21dced4c95b76f47f8ab0ea7686c32439360c41dc070e7ce8df75ae373addb00",
-                "sha256:a4f4f3a0fc4594bdf344cfb925e485ed37ea2051950d8fb389502354f53ce0d6"
-            ],
-            "index": "fury",
-            "version": "==0.0.7"
         },
         "six": {
             "hashes": [

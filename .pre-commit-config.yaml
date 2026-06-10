@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace      # Trims asset whitespaces
+      - id: end-of-file-fixer        # Ensures files end with a newline
+      - id: check-yaml               # Validates YAML syntax
+
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black                    # Automatically formats code to PEP 8 standards
+
+  - repo: https://github.com/aquasecurity/trivy-action
+    rev: v0.20.0
+    hooks:
+      - id: trivy-fs                 # Scans filesystems for secrets/vulnerabilities
+        args: ["--severity", "HIGH,CRITICAL", "--exit-code", "0", "."]
+
+  - repo: https://github.com/returntocorp/semgrep
+    rev: v1.75.0 # Use the latest version
+    hooks:
+      - id: semgrep
+        name: Semgrep SAST
+        # Target Python and FastAPI security rules specifically
+        args: ["--config=p/python", "--config=p/fastapi", "--error"]
