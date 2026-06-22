@@ -33,7 +33,7 @@ services:
       - ENVIRONMENT=${ENVIRONMENT}
       - SECURE_BODY_LOGGING
     networks:
-      - default
+      - shared-app-network
 
   postgres:
     container_name: ${APPLICATION_NAME}-database
@@ -63,3 +63,7 @@ services:
 
 volumes:
   pgdata:
+
+networks:
+  shared-app-network:
+    external: true
