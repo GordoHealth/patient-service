@@ -13,6 +13,13 @@ This project relies heavily on `make` commands and Docker for local development 
 * `make` utility
 * pre-commit
 
+### Docker Setup
+* Ensure Docker is set up on your machine and running
+* Run the following command to create the shared network for all containers (if not already done)
+```bash
+docker network create shared-app-network
+```
+
 ### Local Development
 1. **Build and start the containers:**
    ```bash
