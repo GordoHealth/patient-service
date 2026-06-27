@@ -1,7 +1,7 @@
+from auth_verify import require_admin
+from fastapi import APIRouter, status, Depends
 from typing import Optional
 from uuid import UUID
-
-from fastapi import APIRouter, status, Depends
 
 from app.db.mappers.medication import MedicationMapper
 from app.schemas.medication import (
@@ -15,6 +15,7 @@ from app.schemas.pagination import PaginationParams, PaginatedResponse
 router = APIRouter(
     prefix="/medications",
     tags=["medications"],
+    dependencies=[Depends(require_admin)]
 )
 
 

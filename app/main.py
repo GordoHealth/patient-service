@@ -4,7 +4,7 @@ from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
-from app.api.v1.app import app as api_v1
+from app.api.admin.v1.app import app as api_v1
 from app.middleware import LogRequestTimeMiddleware
 from app.db.logging import add_sqlalchemy_logging
 from app.logging import hide_healthcheck_route_from_uvicorn_log
@@ -36,10 +36,10 @@ def add_middleware(application: FastAPI):
 
 def mount_api(application: FastAPI):
     # Mount the different versions
-    application.mount("/api/v1", api_v1)
+    application.mount("/api/admin/v1", api_v1)
 
     # Mount the 'latest' version
-    application.mount("/api/latest", api_v1)
+    application.mount("/api/admin/latest", api_v1)
 
 
 @asynccontextmanager

@@ -1,7 +1,7 @@
+from auth_verify import require_admin
+from fastapi import APIRouter, status, Depends
 from typing import Optional
 from uuid import UUID
-
-from fastapi import APIRouter, status, Depends
 
 from app.db.mappers.care_plan import CarePlanMapper
 from app.schemas.care_plan import CarePlan, CarePlanCreate, CarePlanSearch, CarePlanUpdate
@@ -10,6 +10,7 @@ from app.schemas.pagination import PaginationParams, PaginatedResponse
 router = APIRouter(
     prefix="/care-plans",
     tags=["care-plans"],
+    dependencies=[Depends(require_admin)]
 )
 
 

@@ -1,13 +1,10 @@
 from fastapi import Depends
 
+from app.api.admin.v1 import care_plans, clinical_charts, medications, patient_medications
 from app.services.app_scaffold import AppScaffold
 from app.logging import log_request_parameters
-from app.api.v1 import (
+from app.api.admin.v1 import (
     patients,
-    care_plans,
-    clinical_charts,
-    medications,
-    patient_medications,
 )
 from app.db.session import get_db, db_session, Session
 

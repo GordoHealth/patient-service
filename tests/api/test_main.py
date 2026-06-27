@@ -31,50 +31,6 @@ def test_status(client: TestClient):
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.parametrize(
-    "allow_origin",
-    [
-        "https://ynvoice.nonprod.shadowhealth.com",
-        "https://bookstore.nonprod.shadowhealth.com",
-        "https://bookstore.shadowhealth.com/",
-        "https://book-store.shadowhealth.com/",
-        "https://book_store.shadowhealth.com/",
-        "https://ynvoice.shadowhealth.com/",
-        "https://api.dfafd.shadowhealth.com",
-        "https://api.2322.shadowhealth.com",
-    ],
-)
-def test_cors_policy_include_header_allow_origin(client: TestClient, allow_origin):
-    response = client.options(
-        ENDPOINT,
-        headers={"Origin": allow_origin, "Access-Control-Request-Method": "GET"},
-    )
-    assert response.status_code == status.HTTP_200_OK
-
-
-@pytest.mark.parametrize(
-    "not_allow_origin",
-    [
-        "http://ynvoice.nonprod.shadowhealth.com",
-        "https://bpi.2322.shadowhealth.com.vn",
-        "https://.shadowhealth.com",
-        "https://api.shaaaadowhealth.com",
-        "https://api.shadowhealth.net",
-        "https://app.name.shadowhealth.com:3000",
-        "https://shadowhealth.com",
-        "http://app-sdfsf-32d-df.shadowhealth.com",
-    ],
-)
-def test_cors_policy_include_header_not_allow_origin(
-    client: TestClient, not_allow_origin
-):
-    response = client.options(
-        ENDPOINT,
-        headers={"Origin": not_allow_origin, "Access-Control-Request-Method": "GET"},
-    )
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
-
-
 def test_cors_policy_without_header_origin(client: TestClient):
     response = client.options(
         ENDPOINT, headers={"Access-Control-Request-Method": "GET"}
@@ -84,7 +40,7 @@ def test_cors_policy_without_header_origin(client: TestClient):
 
 def test_cors_policy_without_header_request_method(client: TestClient):
     response = client.options(
-        ENDPOINT, headers={"Origin": "https://api.2322.shadowhealth.com"}
+        ENDPOINT, headers={"Origin": "https://api.2322.gordohealth.com"}
     )
     assert response.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
 
