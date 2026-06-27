@@ -13,6 +13,8 @@ typer = {extras = ["all"], version = "*"}
 types-psycopg2 = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 
+auth-verify = {git = "https://${GITHUB_TOKEN}@github.com/GordoHealth/auth-verify-pkg", ref = "main"}
+
 [dev-packages]
 bandit = "*"
 black = "*"
