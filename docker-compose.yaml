@@ -6,9 +6,8 @@ services:
     platform: linux/amd64
     build:
       context: .
-      dockerfile: Dockerfile.local
+      target: development
     image: ${APPLICATION_NAME}-image
-    command: pipenv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
     volumes:
       - ./:/usr/src/
     ports:
@@ -34,7 +33,7 @@ services:
       - ENVIRONMENT=${ENVIRONMENT}
       - SECURE_BODY_LOGGING
     networks:
-      - default
+      - shared-app-network
 
   postgres:
     container_name: ${APPLICATION_NAME}-database
@@ -64,3 +63,7 @@ services:
 
 volumes:
   pgdata:
+
+networks:
+  shared-app-network:
+    external: true
